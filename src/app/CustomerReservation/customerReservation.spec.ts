@@ -10,7 +10,7 @@ describe('Customer Reservation component', () => {
     afterEach(() => {
         customerService = null;
     })
-    
+
     it('should register customer / increase current customer count by 1', () => {
        let oldNumberCustomer = customerService.getCustomerCount();
        customerService.registerCustomer();
@@ -24,4 +24,19 @@ describe('Customer Reservation component', () => {
         let newNumberCustomer = customerService.getCustomerCount();
         expect(newNumberCustomer).toBe(oldNumberCustomer - 1);
      });
+
+     /** Aprendedo um pouco sobre AAA( Arrange Act Assert )  
+       */
+     
+    it('Testing room is reserved or not', () => {
+        //Arrange 
+        let custReserve = new CustomerReservasion();
+
+        //Act
+        let isReserved = custReserve.reserveRoom();
+
+        //Assert
+        expect(isReserved).toBeTruthy(true);
+    })
+
 });

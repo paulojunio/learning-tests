@@ -17,4 +17,12 @@ export class CustomerReservasion {
     getCustomerCount() {
         return this.customerCount;
     }
+
+    reserveRoom(): boolean {
+        if(this.customerCount < this.hotelRoomCapacity){
+            this.customerCount++;
+            return true;
+        }
+        return false;
+    }
 }
