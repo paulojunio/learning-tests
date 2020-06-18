@@ -25,12 +25,12 @@ describe('Customer Reservation component', () => {
         expect(newNumberCustomer).toBe(oldNumberCustomer - 1);
      });
 
-     /** Aprendedo um pouco sobre AAA( Arrange Act Assert )  
+     /** Um pouco sobre AAA( Arrange Act Assert )  
        */
      
     it('Testing room is reserved or not', () => {
         //Arrange 
-        let custReserve = new CustomerReservasion();
+        let custReserve = new CustomerReservasion(); // O ideal é sempre utilizar um mock!!!
 
         //Act
         let isReserved = custReserve.reserveRoom();

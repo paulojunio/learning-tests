@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-
+  salSlip: string = '';
   constructor(private authenticationService : AuthenticationService) { }
 
   ngOnInit(){
@@ -18,5 +18,13 @@ export class EmployeeComponent implements OnInit {
     if(this.authenticationService.checkAuthentication())
       return "Salary Slip";
     return "Not Authticated";
+  }
+
+  getSalarySlipTwo() {
+    if(this.authenticationService.checkAuthentication()) {
+      this.salSlip = "Salary Slip";
+    }else{
+      this.salSlip = "Not Authticated";
+    }
   }
 }

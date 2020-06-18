@@ -6,6 +6,7 @@ describe('EmployeeComponent', () => {
   let component: EmployeeComponent;
   let fixture: ComponentFixture<EmployeeComponent>;
   let authenticationService: AuthenticationService;
+  let h1: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -19,6 +20,7 @@ describe('EmployeeComponent', () => {
     fixture = TestBed.createComponent(EmployeeComponent);
     authenticationService = TestBed.get(AuthenticationService);
     component = fixture.componentInstance;
+    h1 = fixture.nativeElement.querySelector('h1');
     fixture.detectChanges();
   });
 
@@ -49,4 +51,9 @@ describe('EmployeeComponent', () => {
     expect(salSlip).toEqual('Not Authticated');
   });
 
+  it(`should assert value for 'h1' element to be value of component`, () =>{
+    component.getSalarySlipTwo();
+    fixture.detectChanges();
+    expect(h1.textContent).toBe(component.salSlip);
+  })
 });
