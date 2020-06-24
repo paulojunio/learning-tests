@@ -6,6 +6,7 @@ import { TestBedComponent } from './test-bed/test-bed.component';
 import { EmployeeComponent } from './Employee/employee.component';
 import { EventTestComponent } from './EventTest/event-test.component';
 import { ProductListComponent } from './ProductList/product-list.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { ProductListComponent } from './ProductList/product-list.component';
     TestBedComponent,
     EmployeeComponent,
     EventTestComponent,
-    ProductListComponent
+    ProductListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule
