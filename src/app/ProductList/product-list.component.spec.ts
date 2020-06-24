@@ -1,12 +1,12 @@
 import { ProductService } from './product-list.service';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 
 import { ProductListComponent } from './product-list.component';
 import { DebugElement } from '@angular/core';
 import { exception } from 'console';
 import { By } from '@angular/platform-browser';
 
-describe('ProductListComponent', () => {
+fdescribe('ProductListComponent', () => {
   let component: ProductListComponent;
   let fixture: ComponentFixture<ProductListComponent>;
   let debugElement: DebugElement;
@@ -49,7 +49,7 @@ describe('ProductListComponent', () => {
 
   it('should test filter product list (async)', async(() => {
     component.searchText = 'eggs';
-    let productSpy = spyOn(productService, 'filterProductList').withArgs('eggs').and.callThrough();
+    let productSpy = spyOn(productService, 'filterProductList').and.callThrough();
     component.filterProductList({});
 
     fixture.whenStable().then(() => {
@@ -59,5 +59,28 @@ describe('ProductListComponent', () => {
 
     });
 
+  }));
+
+  it('should test filter product list (fakeAsync)', fakeAsync(() => {
+    component.searchText = 'eggs';
+    let productSpy = spyOn(productService, 'filterProductList').and.callThrough();
+    component.filterProductList({});
+
+    tick();
+
+    fixture.detectChanges();
+    const value = debugElement.query(By.css('#product_0')).nativeElement.innerText;
+    expect(value).toContain(component.searchText);
+
+  }));
+
+  fit('Testing fakeAsync, how to used tick()', fakeAsync(() => {
+    let number = 10;
+    setTimeout(() => number = 20, 100);
+    expect(number).toEqual(10);
+    tick(50);
+    expect(number).toEqual(10);
+    tick(50);
+    expect(number).toEqual(20);
   }));
 });
