@@ -8,26 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
   searchText: string;
+  //productList: any[] = [];
 
   tempProductList: any[] = [];
 
+
   constructor(private productService: ProductService) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.productService.getProductList().subscribe(data => {
-      this.tempProductList = data;
-    })
-  }
 
-  getProductList() {
+      this.tempProductList = data;
+    });
 
   }
 
   filterProductList(event) {
     let val = this.searchText;
     this.productService.filterProductList(val)
-      .then(data => {
+      .then((data) => {
         this.tempProductList = data;
-      })
+
+      });
+  }
+
+  getFilterCount() {
+
   }
 }

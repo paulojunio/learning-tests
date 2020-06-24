@@ -14,10 +14,11 @@ describe('ProductListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProductListComponent ],
+      declarations: [ProductListComponent],
+      imports: [],
       providers: [ProductService]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -28,46 +29,35 @@ describe('ProductListComponent', () => {
     debugElement = fixture.debugElement;
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('should create product service', () => {
     expect(productService).toBeTruthy();
   });
 
-  it('should test filter product list using (done)', (done) => {
-
-    component.searchText = 'Batata';
+  it('should test filter product list (done)', (done) => {
+    component.searchText = 'eggs';
     let productSpy = spyOn(productService, 'filterProductList').and.callThrough();
 
     component.filterProductList({});
-
-    productSpy.calls.mostRecent().returnValue.then( () => {
+    productSpy.calls.mostRecent().returnValue.then(() => {
       fixture.detectChanges();
+      //Get text from first <li> of the list
       const value = debugElement.query(By.css('#product_0')).nativeElement.innerText;
-      expect(value).toContain(component.searchText); 
+      expect(value).toContain(component.searchText);
+      done();
     });
-    done();
   });
 
-  it('should test filter product list using (async)', async(() => {
-    
-    const searchText = 'Batata';
-    component.tempProductList = [ {title: 'teste', price: 23} ];
-    fixture.detectChanges();
-
-    component.searchText = searchText;
-    let productSpy = spyOn(productService, 'filterProductList').withArgs('Batata').and.callThrough()
-
+  it('should test filter product list (async)', async(() => {
+    component.searchText = 'eggs';
+    let productSpy = spyOn(productService, 'filterProductList').withArgs('eggs').and.callThrough();
     component.filterProductList({});
-    console.log('oiiiii')
+
     fixture.whenStable().then(() => {
       fixture.detectChanges();
-      console.log("vaiii", debugElement.query(By.css('#product_0')).nativeElement.innerText);
       const value = debugElement.query(By.css('#product_0')).nativeElement.innerText;
-      
-      expect(value).toContain(component.searchText); 
+      expect(value).toContain(component.searchText);
+
     });
+
   }));
 });
