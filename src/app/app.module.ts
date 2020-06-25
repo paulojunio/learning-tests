@@ -7,6 +7,8 @@ import { EmployeeComponent } from './Employee/employee.component';
 import { EventTestComponent } from './EventTest/event-test.component';
 import { ProductListComponent } from './ProductList/product-list.component';
 import { LoginComponent } from './login/login.component';
+import { SquarePipe } from './testPipes/square.pipe';
+import { ParameterPipePipe } from './testPipes/parameter-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { LoginComponent } from './login/login.component';
     EmployeeComponent,
     EventTestComponent,
     ProductListComponent,
-    LoginComponent
+    LoginComponent,
+    SquarePipe,
+    ParameterPipePipe
   ],
   imports: [
     BrowserModule
