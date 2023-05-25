@@ -1,4 +1,4 @@
-# Angular - Testes unitarios 
+# Angular - Testes unitarios - Jest
 Este repositório tem como objetivo contemplar o funcionamento de testes unitários no front-end ( AngularJs ), 
 utilizando o Jasmine e o Karma
 
