@@ -4,5 +4,5 @@ Esse projeto tem como objetivo ensinar e demostrantar exemplos de testes unitari
 
 Exemplos disponiveis:
 
-1 - Angular - Jest
-2 - Angular - Cypress
+1. Angular - Jest
+2. Angular - Cypress
