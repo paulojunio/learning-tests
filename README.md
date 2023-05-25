@@ -248,7 +248,7 @@ Podemos testar o DOM do nosso componente, testando eventos de cliques, mudança 
 Problemas com o DOM da aplicação podem ocorrer, como componentes ou libs que estão sendo usados pelo componente PAI.
 Sistema de Mockagem de serviços muito complicado.
 Demora para realizar testes simples, pois para cada teste novo, devemos fazer um novo TestBed para aquele componente que estamos testando.
-Nesse caso, vamos abandonar nosso amiguinho TestBed aqui! Mas para mais discussões sobre o assunto tem esse [artigo] (https://dev.to/angular/unit-testing-in-angular-to-testbed-or-not-to-testbed-3g3b) muito legal com exemplos e suas diferenças!
+Nesse caso, vamos abandonar nosso amiguinho TestBed aqui! Mas para mais discussões sobre o assunto tem esse [artigo](https://dev.to/angular/unit-testing-in-angular-to-testbed-or-not-to-testbed-3g3b) muito legal com exemplos e suas diferenças!
 
 Mas aí você deve se perguntar, “como então vamos testar nossos componentes sem o TestBed???” A resposta é simples, vamos testar nosso componente! Basicamente criando uma instância dele, enviando para ele ( o seu construtor ) todos os dados necessários para ele ser criado! Mas e os mocks? Como vamos fazê-los? Então vamos lá!
 
